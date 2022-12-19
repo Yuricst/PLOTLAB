@@ -10,8 +10,8 @@ function plot_earth_geoid(radius, ticks)
 	hs = meshm(base,baseref,size(base),'HandleVisibility','off');
 	colormap white;
 	% plot coast lines
-	load coast;  
-	plotm(lat, long, 'k','HandleVisibility','off');  % plot coast lines 
+	load coastlines;  
+	plotm(coastlat, coastlon, 'k','HandleVisibility','off');  % plot coast lines 
 
 	xticks(ticks);
 	yticks(ticks);
