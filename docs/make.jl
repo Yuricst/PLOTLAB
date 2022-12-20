@@ -5,7 +5,8 @@ Make documentation
 using Documenter
 using DocStringExtensions
 push!(LOAD_PATH, "../src/")
-using PLOTLAB
+#using PLOTLAB
+include("../src/PLOTLAB.jl")
 
 makedocs(
 	sitename="PLOTLAB.jl",
