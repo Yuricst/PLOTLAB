@@ -26,10 +26,10 @@ Plotting spacecraft trajectories
 ### Usage via MATLAB
 
 1. `git clone` this repository
-2. `addpath` to the `matlab` directory, e.g.
+2. `addpath` to the `src/matlab` directory in MATLAB, i.e.
 
 ```matlab
-addpath('/path/to/PLOTLAB/matlab')
+addpath('/path/to/PLOTLAB/src/matlab')
 ```
 
 

@@ -1,4 +1,13 @@
 function plot_earth_geoid(radius, ticks)
+% Get plotting coordinates for 3D ellipsoids
+%
+% Args: 
+%     radius: radius of globe
+%     ticks: ticks for x, y, and z axes
+%
+% Example:
+%    globe = plot_earth_geoid(1.0, [-1.5, -1, -0.5, 0, 0.5, 1, 1.5]);
+% ------------------------------------------------------------------ %
 
 	% plot earth
 	axesm('globe', 'Geoid', [radius, 0], 'Grid', 'on');
