@@ -4,9 +4,8 @@ Make documentation
 
 using Documenter
 using DocStringExtensions
-push!(LOAD_PATH, "../src/")
-#using PLOTLAB
-include("../src/PLOTLAB.jl")
+push!(LOAD_PATH,"../src/")
+using PLOTLAB
 
 makedocs(
 	sitename="PLOTLAB.jl",
@@ -26,4 +25,5 @@ makedocs(
 
 deploydocs(;
     repo="github.com/yuricst/PLOTLAB",
+    branch = "gh-pages",
 )
