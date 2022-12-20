@@ -43,6 +43,8 @@ addpath('/path/to/PLOTLAB/src/matlab')
 
 ## Gallery
 
-<p align="center">
+- Geoid plot
+
+<p align="left">
     <img src="./examples/example_geoid.png" width="550" title="example_geoid">
 </p>
