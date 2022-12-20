@@ -39,3 +39,10 @@ addpath('/path/to/PLOTLAB/src/matlab')
 
 - Obtain coordinates of 3D ellipsoid as wireframe: `celestial_body()`
 - Plot Earth with coast lines: `plot_earth_geoid()`
+
+
+## Gallery
+
+<p align="center">
+    <img src="./examples/example_geoid.png" width="550" title="example_geoid">
+</p>

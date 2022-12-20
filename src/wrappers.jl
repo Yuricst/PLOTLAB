@@ -76,7 +76,7 @@ end
 
 
 """
-	$(TYPEDSIGNATURES)
+$(TYPEDSIGNATURES)
 
 Plot Earth wireframe to current MATLAB figure with coastlines.
 """
@@ -92,4 +92,15 @@ Wrap to MATLAB's `plot3` function.
 """
 function plot3(xs, ys, zs; lw::Real=1.0, color="blue")
 	mat"plot3($xs, $ys, $zs, \"Color\", $color)"
+end
+
+
+"""
+$(TYPEDSIGNATURES)
+
+Wrap to MATLAB's `saveas` function
+"""
+function saveas(fig, filename::String)
+	mat"saveas(gcf, $filename)"
+	println("Saved gcf to $filename")
 end
