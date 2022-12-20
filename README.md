@@ -2,6 +2,9 @@
 
 [Documentation](https://yuricst.github.io/PLOTLAB/)
 
+Note: to view full API information, build documentation by running `julia docs/make.jl`
+
+
 `PLOTLAB` provides quick recipies for plotting trajectories using the MATLAB engine.
 `PLOTLAB.jl` is a Julia wrapper to these MATLAB routines for generating plots directly from Julia, based on [`MATLAB.jl`](https://github.com/JuliaInterop/MATLAB.jl). 
 
