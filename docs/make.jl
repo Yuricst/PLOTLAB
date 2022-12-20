@@ -3,6 +3,7 @@ Make documentation
 """
 
 using Documenter
+using DocStringExtensions
 push!(LOAD_PATH, "../src/")
 using PLOTLAB
 
