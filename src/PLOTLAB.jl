@@ -1,12 +1,6 @@
 module PLOTLAB
 
-try
-	using MATLAB
-	foo = hoge
-catch
-	println("Skipping MATLAB import!")
-end
-
+using MATLAB
 using DocStringExtensions
 
 # add path to matlab functions
