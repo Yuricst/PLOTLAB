@@ -24,6 +24,7 @@ makedocs(
 
 
 deploydocs(;
-    repo="github.com/yuricst/PLOTLAB",
+    repo   = "github.com/yuricst/PLOTLAB",
+    target = "build",
     branch = "gh-pages",
 )
