@@ -18,7 +18,7 @@ makedocs(
 		"API" => "api.md",
 	],
 	# assets=[
-    #     "assets/psyche_symbol.png",  # for logo
+    #     "assets/logo.png",  # for logo
     # ],
 )
 
