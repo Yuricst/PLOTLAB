@@ -13,8 +13,7 @@ Note: to view full API information, build documentation by running `julia docs/m
 
 - MATLAB license
 - MATLAB version: developped on 2020a
-- Toolboxes: 
-	- Mapping Toolbox (for `plot_earth_geoid()` function)
+- Toolboxes: Mapping Toolbox (for `plot_earth_geoid()` function)
 
 
 ## Usage via Julia
