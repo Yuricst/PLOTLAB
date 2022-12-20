@@ -1,5 +1,6 @@
 # PLOTLAB
-Plotting spacecraft trajectories
+
+[Documentation](https://yuricst.github.io/PLOTLAB/)
 
 `PLOTLAB` provides quick recipies for plotting trajectories using the MATLAB engine.
 `PLOTLAB.jl` is a Julia wrapper to these MATLAB routines for generating plots directly from Julia, based on [`MATLAB.jl`](https://github.com/JuliaInterop/MATLAB.jl). 
