@@ -1,12 +1,20 @@
 module PLOTLAB
+
+try
 	using MATLAB
-	using DocStringExtensions
+	foo = hoge
+catch
+	println("Skipping MATLAB import!")
+end
 
-	# add path to matlab functions
-	matlab_path = string(joinpath(dirname(@__FILE__), "matlab"))
-	mat"addpath($matlab_path)"
+using DocStringExtensions
 
-	include("wrappers.jl")
+# add path to matlab functions
+matlab_path = string(joinpath(dirname(@__FILE__), "matlab"))
+mat"addpath($matlab_path)"
 
-	export plot_earth_geoid
+include("wrappers.jl")
+
+export plot_earth_geoid
+
 end # module
