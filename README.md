@@ -22,6 +22,27 @@ Plotting spacecraft trajectories
 #### Julia Depenencies
 - `MATLAB.jl`, `DocStringExtensions`
 
+#### Examples
+
+```julia
+import PLOTLAB
+
+PLOTLAB.close_all()     # close all figure
+fig = PLOTLAB.figure(
+	3,
+	size=[200,200,500,500],
+	box=true
+)                       # create new figure
+
+# plot Earth
+ticks = [-1.5, -1.0, -0.5, 0, 0.5, 1.0, 1.5]
+PLOTLAB.plot_earth_geoid(1, ticks)
+
+# save
+PLOTLAB.saveas(fig, "example_geoid.png")
+```
+
+- See `./examples` for more
 
 ## Usage via MATLAB
 
@@ -45,6 +66,6 @@ addpath('/path/to/PLOTLAB/src/matlab')
 
 - Geoid plot
 
-<p align="left">
+<p align="center">
     <img src="./examples/example_geoid.png" width="550" title="example_geoid">
 </p>
