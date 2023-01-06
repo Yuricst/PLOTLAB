@@ -1,6 +1,6 @@
 # PLOTLAB
 
-[Documentation](https://yuricst.github.io/PLOTLAB/)
+[Documentation](https://yuricst.github.io/PLOTLAB/) (For full version, run `make.jl` in `docs`.
 
 Note: to view full API information, build documentation by running `julia docs/make.jl`
 
