@@ -134,6 +134,35 @@ end
 """
 $(TYPEDSIGNATURES)
 
+Wrap to MATLAB's `scatter` function.
+"""
+function scatter(xs, ys; size=5, color::String="blue", marker::String='o')
+	if isnothing(marker)
+		mat"scatter3($xs, $ys, $size, $color)"
+	else
+		mat"scatter3($xs, $ys, $size, $color, \"Marker\", $marker)"
+	end
+end
+
+
+
+"""
+$(TYPEDSIGNATURES)
+
+Wrap to MATLAB's `scatter3` function.
+"""
+function scatter3(xs, ys, zs; size=5, color::String="blue", marker::String='o')
+	if isnothing(marker)
+		mat"scatter3($xs, $ys, $zs, $size, $color)"
+	else
+		mat"scatter3($xs, $ys, $zs, $size, $color, \"Marker\", $marker)"
+	end
+end
+
+
+"""
+$(TYPEDSIGNATURES)
+
 Wrap to MATLAB's `saveas` function
 """
 function saveas(fig, filename::String)
