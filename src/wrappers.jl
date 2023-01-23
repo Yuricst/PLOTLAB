@@ -137,11 +137,7 @@ $(TYPEDSIGNATURES)
 Wrap to MATLAB's `scatter` function.
 """
 function scatter(xs, ys; size=5, color::String="blue", marker::String='o')
-	if isnothing(marker)
-		mat"scatter3($xs, $ys, $size, $color)"
-	else
-		mat"scatter3($xs, $ys, $size, $color, \"Marker\", $marker)"
-	end
+	mat"scatter3($xs, $ys, \"Size\", $size, \"Color\", $color, \"Marker\", $marker)"
 end
 
 
@@ -151,12 +147,9 @@ $(TYPEDSIGNATURES)
 
 Wrap to MATLAB's `scatter3` function.
 """
-function scatter3(xs, ys, zs; size=5, color::String="blue", marker::String='o')
-	if isnothing(marker)
-		mat"scatter3($xs, $ys, $zs, $size, $color)"
-	else
-		mat"scatter3($xs, $ys, $zs, $size, $color, \"Marker\", $marker)"
-	end
+function scatter3(xs, ys, zs; size=5.0, color::String="blue", marker::String='o')
+	mat"scatter3($xs, $ys, $zs)"
+	#, \"MarkerSize\", $size, \"Color\", $color, \"Marker\", $marker)"
 end
 
 
