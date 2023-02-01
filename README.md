@@ -1,4 +1,4 @@
-# PLOTLAB
+# PLOTLAB - making beautiful trajectory (+other) plots on Julia using the MATLAB engine
 
 [Documentation](https://yuricst.github.io/PLOTLAB/) (For full version, run `make.jl` in `docs`.
 
