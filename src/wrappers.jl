@@ -28,6 +28,9 @@ function figure(
 	xlabel::String="x",
 	ylabel::String="y",
 	zlabel::String="z",
+	xlim=nothing,
+	ylim=nothing,
+	zlim=nothing,
 )
 	fig = mat"figure('Position', $size)"
 
@@ -63,6 +66,17 @@ function figure(
 	mat"ylabel($ylabel)"
 	if is_3d
 		mat"zlabel($zlabel)"
+	end
+
+	# limits to axes
+	if isnothing(xlim) == false
+		mat"xlim($xlim)"
+	end
+	if isnothing(ylim) == false
+		mat"ylim($ylim)"
+	end
+	if is_3d == true && isnothing(zlim) == false
+		mat"zlim($zlim);"
 	end
 	return fig
 end
@@ -103,16 +117,38 @@ function plot_earth_geoid(radius::Real, ticks)
 end
 
 
+function handle_color(color)
+	if typeof(color) == Vector{Float64}
+		r,g,b = color
+		color_str = "[$r, $g, $b]"
+	elseif typeof(color) == String
+		color_str = color
+	elseif typeof(color) == RGB{Float64} || typeof(color) == RGBA{Float64}
+		r,g,b = color.r, color.g, color.b
+		color_str = "[$r, $g, $b]"
+	elseif typeof(color) == Symbol
+		color_symbol = Colors.parse(RGBA{Float64}, color)
+		r,g,b = color_symbol.r, color_symbol.g, color_symbol.b
+		color_str = "[$r, $g, $b]"
+	else
+		println("Could not recognize color of type: ", typeof(color))
+	end
+	return color_str
+end
+
+
+
 """
 $(TYPEDSIGNATURES)
 
 Wrap to MATLAB's `plot` function.
 """
 function plot(xs, ys; lw::Real=1.0, color="blue", marker=nothing)
+	color_str = handle_color(color)
 	if isnothing(marker)
-		mat"plot($xs, $ys, \"Color\", $color, \"LineWidth\", $lw)"
+		mat"plot($xs, $ys, \"Color\", $color_str, \"LineWidth\", $lw)"
 	else
-		mat"plot($xs, $ys, \"Color\", $color, \"LineWidth\", $lw, \"Marker\", $marker)"
+		mat"plot($xs, $ys, \"Color\", $color_str, \"LineWidth\", $lw, \"Marker\", $marker)"
 	end
 end
 
@@ -123,10 +159,11 @@ $(TYPEDSIGNATURES)
 Wrap to MATLAB's `plot3` function.
 """
 function plot3(xs, ys, zs; lw::Real=1.0, color="blue", marker=nothing)
+	color_str = handle_color(color)
 	if isnothing(marker)
-		mat"plot3($xs, $ys, $zs, \"Color\", $color, \"LineWidth\", $lw)"
+		mat"plot3($xs, $ys, $zs, \"Color\", $color_str, \"LineWidth\", $lw)"
 	else
-		mat"plot3($xs, $ys, $zs, \"Color\", $color, \"LineWidth\", $lw, \"Marker\", $marker)"
+		mat"plot3($xs, $ys, $zs, \"Color\", $color_str, \"LineWidth\", $lw, \"Marker\", $marker)"
 	end
 end
 
@@ -136,8 +173,9 @@ $(TYPEDSIGNATURES)
 
 Wrap to MATLAB's `scatter` function.
 """
-function scatter(xs, ys; size=5, color::String="blue", marker::String='o')
-	mat"scatter3($xs, $ys, \"Size\", $size, \"Color\", $color, \"Marker\", $marker)"
+function scatter(xs, ys; size=5, color="blue", marker::String='o')
+	color_str = handle_color(color)
+	mat"scatter3($xs, $ys, \"Size\", $size, \"Color\", $color_str, \"Marker\", $marker)"
 end
 
 
@@ -147,7 +185,8 @@ $(TYPEDSIGNATURES)
 
 Wrap to MATLAB's `scatter3` function.
 """
-function scatter3(xs, ys, zs; size=5.0, color::String="blue", marker::String='o')
+function scatter3(xs, ys, zs; size=5.0, color="blue", marker::String='o')
+	color_str = handle_color(color)
 	mat"scatter3($xs, $ys, $zs)"
 	#, \"MarkerSize\", $size, \"Color\", $color, \"Marker\", $marker)"
 end

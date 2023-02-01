@@ -5,16 +5,15 @@
 Note: to view full API information, build documentation by running `julia docs/make.jl`
 
 
-`PLOTLAB` provides quick recipies for plotting trajectories using the MATLAB engine.
-`PLOTLAB.jl` is a Julia wrapper to these MATLAB routines for generating plots directly from Julia, based on [`MATLAB.jl`](https://github.com/JuliaInterop/MATLAB.jl). 
+`PLOTLAB` provides quick recipes for plotting trajectories using the MATLAB engine.
+`PLOTLAB.jl` is a Julia wrapper to these MATLAB routines for generating plots directly from Julia, based on [`MATLAB.jl`](https://github.com/JuliaInterop/MATLAB.jl).
 
 
 ## MATLAB requirements
 
 - MATLAB license
-- MATLAB version: developped on 2020a
+- MATLAB version: developed on 2020a
 - Toolboxes: Mapping Toolbox (for `plot_earth_geoid()` function)
-
 
 ## Usage via Julia
 
@@ -24,6 +23,39 @@ Note: to view full API information, build documentation by running `julia docs/m
 
 #### Julia Depenencies
 - `MATLAB.jl`, `DocStringExtensions`
+
+
+## Features (for plotting from Julia)
+
+### Creating a figure
+
+Creating a new MATLAB figure is as easy as
+
+```julia
+PLOTLAB.figure()
+```
+
+The `PLOTLAB.figure()` accepts optional parameters of the figure; here are some useful ones:
+
+- `view::Int`: 2 for 2D, 3 for 3D view plot
+- `axis_equal::Bool`: whether to set equal axes
+- `xlabel::String`, `ylabel::String`, `zlabel::String`: names of axes
+- `xlim::Vector{Real}`, `ylim::Vector{Real}`, `zlim::Vector{Real}`: limits on axes
+
+
+### Choosing colors
+
+So many options for defining colors of your plots!
+
+```julia
+color_list = cgrad(:hawaii)   # define a color palette alla moda di julia's plots
+
+PLOTLAB.plot3(traj1[1,:], traj1[2,:], traj1[3,:], lw=1.5, color="blue")           # MATLAB color names
+PLOTLAB.plot3(traj2[1,:], traj2[2,:], traj2[3,:], lw=1.5, color=:gold)            # Julia color symbol
+PLOTLAB.plot3(traj3[1,:], traj3[2,:], traj3[3,:], lw=1.5, color=[1.0, 0.0, 0.0])  # vector [r,g,b]
+PLOTLAB.plot3(traj4[1,:], traj4[2,:], traj4[3,:], lw=1.5, color=color_list[1])    # color object
+```
+
 
 #### Examples
 
@@ -49,7 +81,7 @@ PLOTLAB.saveas(fig, "example_geoid.png")
 
 ## Usage via MATLAB
 
-The MATLAB routines can of course be used directly by adding path. 
+The MATLAB routines can of course be used directly by adding path.
 
 1. `git clone` this repository
 2. `addpath` to the `src/matlab` directory in MATLAB, i.e.
@@ -61,7 +93,7 @@ addpath('/path/to/PLOTLAB/src/matlab')
 
 ## Main functions
 
-#### Plotting spheres: 
+#### Plotting spheres:
 
 - Obtain coordinates of 3D ellipsoid as wireframe: `celestial_body()`
 - Plot Earth with coast lines: `plot_earth_geoid()`
