@@ -203,11 +203,26 @@ function saveas(fig, filename::String)
 end
 
 
-"""
-$(TYPEDSIGNATURES)
+# """
+# $(TYPEDSIGNATURES)
+#
+# Get x, y, z coordinates of ellipsoid wireframe
+# """
+# function celestial_body(center, erad, prad, npanels)
+# 	return mat"celestial_body($center, $erad, $prad, $npanels)"
+# end
 
-Get x, y, z coordinates of ellipsoid wireframe
+
 """
-function celestial_body(center, erad, prad, npanels)
-	return mat"celestial_body($center, $erad, $prad, $npanels)"
+Plot sphere to existing figure using `sphere()` and `surf()` functions.
+"""
+function plot3_sphere(center::Vector, r::Real, n::Int=20)
+	mat"[X,Y,Z] = sphere($n);"
+	_X = @mget X
+	_Y = @mget Y
+	_Z = @mget Z
+	X2 = _X * r + center[1]*ones(size(_X))
+	Y2 = _Y * r + center[2]*ones(size(_Y))
+	Z2 = _Z * r + center[3]*ones(size(_Z))
+	mat"surf($X2, $Y2, $Z2)"
 end

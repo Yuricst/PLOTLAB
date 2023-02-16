@@ -1,7 +1,7 @@
 function [xx,yy,zz] = celestial_body(center, erad, prad, npanels)
 % Get plotting coordinates for 3D ellipsoids
 %
-% Args: 
+% Args:
 %     erad: equatorial radius
 %     prad: polar radius
 %
