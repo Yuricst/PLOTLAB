@@ -226,3 +226,11 @@ function plot3_sphere(center::Vector, r::Real, n::Int=20)
 	Z2 = _Z * r + center[3]*ones(size(_Z))
 	mat"surf($X2, $Y2, $Z2)"
 end
+
+
+"""
+Investigate matrix with `spy()` function.
+"""
+function spy(matrix, marker_spec::String="ro")
+	mat"spy($matrix, $marker_spec)"
+end
