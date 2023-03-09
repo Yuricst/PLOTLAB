@@ -234,3 +234,16 @@ Investigate matrix with `spy()` function.
 function spy(matrix, marker_spec::String="ro")
 	mat"spy($matrix, $marker_spec)"
 end
+
+
+"""
+Plot Moon with topology map.
+Radii given in [x,y,z] directions, and center [x,y,z].
+If `rotate_180==1`, then map is rotated by 180 deg about [0,0,1].
+"""
+function plot_moon(radii::Vector{Float64}, center::Vector{Float64}, rotate_180::Int=1)
+  # unpack arguments
+  rx, ry, rz = radii[1:3]
+  cx, cy, cz = center[1:3]
+  mat"plot_moon($rx, $ry, $rz, $cx, $cy, $cz, $rotate_180)"
+end
