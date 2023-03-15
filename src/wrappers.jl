@@ -193,6 +193,21 @@ end
 
 
 """
+	quiver3(xs, ys, zs, us, vs, ws; scale::Real=1.0, lw::Real=1.0, color="red")
+
+Plot 3D quiver on current figure.
+"""
+function quiver3(xs, ys, zs, us, vs, ws; scale::Real=1.0, lw::Real=1.0, color="red")
+	color_str = handle_color(color)
+	if isnothing(scale)
+		mat"quiver3($xs, $ys, $zs, $us, $vs, $ws, \"Color\", $color_str, \"LineWidth\", $lw)"
+	else
+		mat"quiver3($xs, $ys, $zs, $us, $vs, $ws, $scale, \"Color\", $color_str, \"LineWidth\", $lw)"
+	end
+end
+
+
+"""
 $(TYPEDSIGNATURES)
 
 Wrap to MATLAB's `saveas` function
@@ -237,6 +252,8 @@ end
 
 
 """
+	plot_moon(radii::Vector{Float64}, center::Vector{Float64}, rotate_180::Int=1)
+
 Plot Moon with topology map.
 Radii given in [x,y,z] directions, and center [x,y,z].
 If `rotate_180==1`, then map is rotated by 180 deg about [0,0,1].

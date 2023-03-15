@@ -7,6 +7,6 @@ topo = fliplr(imread('lunar_topo.jpg'));
 set(hPlanet,'facecolor','texture','cdata',topo,...
     'edgecolor','none');
 if rotate_180==1
-  rotate(hPlanet,[0,0,1],180);
+  rotate(hPlanet,[0,0,1],180,[cx,cy,cz]);
 end
 end
