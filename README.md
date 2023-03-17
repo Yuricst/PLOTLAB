@@ -27,6 +27,13 @@ Note: to view full API information, build documentation by running `julia docs/m
 
 ## Features (for plotting from Julia)
 
+- [x] 3D line plot: `plot3`
+- [x] 3D quiver plot: `quiver3`
+- [x] Color syntax (MATLAB/Julia syntax)
+- [x] 3D Plot geoid (need Mapping Toolbox)
+- [x] 3D Plot Moon
+- [ ] 3D scatter plot: `scatter3`
+
 ### Creating a figure
 
 Creating a new MATLAB figure is as easy as
