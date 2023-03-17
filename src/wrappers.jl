@@ -112,7 +112,7 @@ $(TYPEDSIGNATURES)
 
 Plot Earth wireframe to current MATLAB figure with coastlines.
 """
-function plot_earth_geoid(radius::Real, ticks)
+function plot_earth_geoid(radius::Float64, ticks)
 	mat"plot_earth_geoid($radius, $ticks)"
 end
 

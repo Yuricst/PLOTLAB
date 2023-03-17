@@ -71,7 +71,7 @@ fig = PLOTLAB.figure(
 
 # plot Earth
 ticks = [-1.5, -1.0, -0.5, 0, 0.5, 1.0, 1.5]
-PLOTLAB.plot_earth_geoid(1, ticks)
+PLOTLAB.plot_earth_geoid(1.0, ticks)
 
 # save
 PLOTLAB.saveas(fig, "example_geoid.png")
@@ -95,7 +95,6 @@ addpath('/path/to/PLOTLAB/src/matlab')
 
 #### Plotting spheres:
 
-- Obtain coordinates of 3D ellipsoid as wireframe: `celestial_body()`
 - Plot Earth with coast lines: `plot_earth_geoid()`
 
 
@@ -105,4 +104,23 @@ addpath('/path/to/PLOTLAB/src/matlab')
 
 <p align="center">
     <img src="./examples/example_geoid.png" width="550" title="example_geoid">
+</p>
+
+
+- Moon plot
+
+<p align="center">
+    <img src="./examples/example_moon.png" width="550" title="example_moon">
+</p>
+
+- 3D quiver
+
+<p align="center">
+    <img src="./examples/example_quiver3.png" width="550" title="example_quiver3">
+</p>
+
+- Tweaking colors
+
+<p align="center">
+    <img src="./examples/example_color.png" width="550" title="example_color">
 </p>

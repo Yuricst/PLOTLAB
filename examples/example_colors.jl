@@ -36,3 +36,6 @@ PLOTLAB.plot3(traj1[1,:], traj1[2,:], traj1[3,:], lw=1.5, color="blue")         
 PLOTLAB.plot3(traj2[1,:], traj2[2,:], traj2[3,:], lw=1.5, color=:gold)            # Julia color symbol
 PLOTLAB.plot3(traj3[1,:], traj3[2,:], traj3[3,:], lw=1.5, color=[1.0, 0.0, 0.0])  # vector [r,g,b]
 PLOTLAB.plot3(traj4[1,:], traj4[2,:], traj4[3,:], lw=1.5, color=color_list[1])    # color object
+
+# save
+PLOTLAB.saveas(fig, "example_color.png")

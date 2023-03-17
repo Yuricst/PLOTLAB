@@ -13,7 +13,7 @@ fig = PLOTLAB.figure(
 
 # plot Earth
 ticks = [-1.5, -1.0, -0.5, 0, 0.5, 1.0, 1.5]
-PLOTLAB.plot_earth_geoid(1, ticks)
+PLOTLAB.plot_earth_geoid(1.0, ticks)
 
 # save
 PLOTLAB.saveas(fig, "example_geoid.png")
