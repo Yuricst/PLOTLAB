@@ -1,6 +1,6 @@
 # PLOTLAB - making beautiful trajectory (+other) plots on Julia using the MATLAB engine
 
-[Documentation](https://yuricst.github.io/PLOTLAB/) (For full version, run `make.jl` in `docs`.
+[Documentation](https://yuricst.github.io/PLOTLAB/) (For full version, run `make.jl` in `docs`).
 
 Note: to view full API information, build documentation by running `julia docs/make.jl`
 
@@ -96,13 +96,6 @@ The MATLAB routines can of course be used directly by adding path.
 ```matlab
 addpath('/path/to/PLOTLAB/src/matlab')
 ```
-
-
-## Main functions
-
-#### Plotting spheres:
-
-- Plot Earth with coast lines: `plot_earth_geoid()`
 
 
 ## Gallery

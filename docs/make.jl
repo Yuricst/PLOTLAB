@@ -16,6 +16,7 @@ makedocs(
 	pages = [
 		"Home" => "index.md",
 		"API" => "api.md",
+		"Gallery" => "gallery.md",
 	],
 	# assets=[
     #     "assets/logo.png",  # for logo
