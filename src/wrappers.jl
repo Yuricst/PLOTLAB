@@ -13,8 +13,32 @@ function close_all()
 end
 
 
+
 """
-$(TYPEDSIGNATURES)
+	fontsize(fs::Real)
+
+Set fontsize on current figure
+"""
+function fontsize(fs::Real)
+	mat"set(gca, 'fontsize', $fs)"
+end
+
+
+"""
+	figure(
+		view=3;
+		size=[200,200,700,700],
+		grid::Bool=true,
+		axis_equal::Bool=true,
+		box::Bool=true,
+		hold_on::Bool=true,
+		xlabel::String="x",
+		ylabel::String="y",
+		zlabel::String="z",
+		xlim=nothing,
+		ylim=nothing,
+		zlim=nothing,
+	)
 
 Wrap to MATLAB's `close all` function along with plot configurations.
 """
@@ -31,6 +55,8 @@ function figure(
 	xlim=nothing,
 	ylim=nothing,
 	zlim=nothing,
+	title::Union{Nothing,String}=nothing,
+	fs::Real=14
 )
 	fig = mat"figure('Position', $size)"
 
@@ -78,8 +104,17 @@ function figure(
 	if is_3d == true && isnothing(zlim) == false
 		mat"zlim($zlim);"
 	end
+
+	# title
+	if isnothing(title) == false
+		mat"title($title)"
+	end
+
+	# set fontsize
+	fontsize(fs)
 	return fig
 end
+
 
 
 """
@@ -263,4 +298,14 @@ function plot_moon(radii::Vector{Float64}, center::Vector{Float64}, rotate_180::
   rx, ry, rz = radii[1:3]
   cx, cy, cz = center[1:3]
   mat"plot_moon($rx, $ry, $rz, $cx, $cy, $cz, $rotate_180)"
+end
+
+
+"""
+	legend(legend_string::String)
+
+Add legend based on string input
+"""
+function legend(legend_string::String)
+	mat"legend($legend_string)"
 end
